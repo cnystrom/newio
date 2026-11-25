@@ -1,0 +1,75 @@
+#
+# Makefile for nio_lib.o
+#
+
+CC =  gcc
+
+INCLUDES =	-I../common \
+		-I../common/str_lib \
+		-I../common/file_io_lib \
+		-I../common/nio_log \
+		-I../common/msg_lib \
+		$(NULL)
+
+#COMMONLIBS = \
+#		../common/str_lib/str_lib.a \
+#		../common/file_io_lib/file_io_lib.a \
+#		../common/nio_log/nio_log.a \
+#		../common/msg_lib/msg_lib.a
+
+CFLAGS = -O -Wall -g -DDEBUG -DUNIX $(INCLUDES) $(shell sdl-config --cflags)
+
+all:		nio_lib.a
+
+nio_lib.a:	nio_lib.c event.o nio_ui_lib.o ui_spec.o ui_spec_widgets.o keyboard.o mouse.o colors.o joystick.o rw_stdio.o font.o term.o nio_lib.h nio_font.h
+		$(CC) $(CFLAGS) -c nio_lib.c 
+		rm -f nio_lib.a
+		ar rcs nio_lib.a nio_lib.o rw_stdio.o font.o term.o keyboard.o mouse.o colors.o event.o joystick.o nio_ui_lib.o ui_spec.o ui_spec_widgets.o 
+		ranlib nio_lib.a
+
+keyboard.o:	keyboard.c keyboard.h
+		$(CC) $(CFLAGS) -c keyboard.c
+
+joystick.o:	joystick.c joystick.h
+		$(CC) $(CFLAGS) -c joystick.c
+
+event.o:	event.c event.h
+		$(CC) $(CFLAGS) -c event.c
+
+nio_ui_lib.o:	nio_ui_lib.c nio_ui_lib.h
+		$(CC) $(CFLAGS) -I/usr/local/include/json -c nio_ui_lib.c
+		
+ui_spec.o:	ui_spec.c ui_spec.h
+		$(CC) $(CFLAGS) -I/usr/local/include/json -c ui_spec.c
+		
+ui_spec_widgets.o:	ui_spec_widgets.c ui_spec_widgets.h
+		$(CC) $(CFLAGS) -I/usr/local/include/json -c ui_spec_widgets.c
+
+#reply.o:	reply.c reply.h
+#		$(CC) $(CFLAGS) -c reply.c
+
+mouse.o:	mouse.c mouse.h
+		$(CC) $(CFLAGS) -c mouse.c
+
+colors.o:	colors.c colors.h
+		$(CC) $(CFLAGS) -c colors.c
+
+rw_stdio.o:	rw_stdio.c
+		$(CC) $(CFLAGS) -c rw_stdio.c
+
+font.o:		font.c font.h
+		$(CC) $(CFLAGS) -c font.c
+
+term.o:		term.c term.h
+		$(CC) $(CFLAGS) -c term.c
+
+indent:
+		indent -kr -i8 *.h *.c
+
+install:
+		cp *.a ..
+		cp *.h ..
+
+clean:
+		rm -f *.o *.a core .*.swp *~
+

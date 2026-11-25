@@ -1,0 +1,34 @@
+
+05/16/05 - Fixed port field in URL - ccn
+05/16/05 - Enable Key Repeating - ccn
+05/29/05 - Broke up main.c into several smaller files (build 026 - ccn)
+06/08/05 - Added Fastevent and Net2 libraries (build 030)
+06/24/05 - Using UDP instead of TCP (build 027H)
+07/04/05 - Dropped UDP and Fastevent and Net2 libraries. UDP did not help enough.
+07/19/05 - Integrated messaging model into code base (build 032).
+08/28/05 - Fixed update_screen() bug (build 033).
+08/31/05 - Changed API to better control screen paints. Animation now possible. Upped version to 0.07 since compatibiliy broken (build 035).
+09/12/05 - Started adding video support using SMPEG library (build 038)
+09/17/05 - Fixed color bug in rectangle drawing routine (build 039).
+09/26/05 - Various bug fixes and cleanup in preperation for first public release (build 043).
+10/05/05 - Moved source code to src directory. Cleaned up build system (Makefiles). Got rid of misc_lib. (build 044)
+10/07/05 - Fixed bug in play_sound(). Fixed install dir to $HOME/.d0 (build 045)
+10/07/05 - Created primitive version checker. Dreadnought will now advise you if you need to upgrade. (Version 0.08, build 046)
+03/21/06 - Removed SMPEG dependency (Version 0.09, build 054)
+03/29/06 - Fixed bug in terminal code having to to with CR (Ascii 13) (version 0.09, build 053b)
+04/14/06 - replaced unix specific pthreads with portable SDL threads in preparation for a windows port (version 0.09, build 055)
+05/02/06 - Build 056 - attempt to layer on ssh
+05/10/06 - Experimental version 0.10 Build 057 - more ssh
+10/11/06 - Build 057 - play movie in external viewer in version 0.09
+10/31/06 - Build 058 - version 0.09 - cleanup for CVS - re-added SDL threads
+11/10/06 - Build 059 - msg_lib now supports batched messages
+11/16/06 - Build 060 - version 0.11 - support for batched messages
+12/11/06 - Build 061 - support for inter-thread queues
+12/15/06 - Build 063 - Use libssh2 instead of shelling to scp (Bug IDs fixed: 1614458, 1614455)
+01/06/07 - Build 064 - ssh sub-system and Win32 support (Bug IDs fixed: 1614506, 1614479, 1617358)
+01/12/07 - Build 065 - various bug fixes
+02/28/07 - Build 066 - Single event queue, joystick, multi-install capability
+01/22/09 - Updated for latest ffmpeg lib, fixed text_box.c issues
+01/30/11 - Build 067 - Used latest common/sock_lib and cleaned up compiler
+                       warnings
+

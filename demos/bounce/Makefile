@@ -1,0 +1,123 @@
+
+#the compiler
+CC = gcc 
+
+#compiler options
+
+#COPTS = -O3 -g -Wall -c $(shell sdl-config --cflags) -Wno-deprecated -ansi
+#COPTS = -O3 -g -Wall $(shell sdl-config --cflags)
+COPTS = -O3 -g -Wall -DUNIX
+
+#header files
+INCLUDES = \
+	-I../../nio_lib \
+	-I../../common \
+	$(NULL)
+
+#library directories
+LIBDIRS = \
+	$(NULL)
+
+#libraries to link with
+LIBS = \
+	$(shell sdl-config --libs) \
+	-lpthread \
+	-lm \
+	-lSDL_ttf\
+	$(NULL)
+
+#all compiler flags
+CFLAGS = $(COPTS) $(INCLUDES)
+
+#all linker options and libs
+LFLAGS = $(LIBDIRS)
+
+#default compilation rules
+%.o:	%.c
+	$(CC) -c $< $(CFLAGS) -o $@ 
+
+# create deps
+#-M -MF $*.dep
+
+#local headers to depend on
+HEADERS = \
+	loading.h \
+	$(NULL)
+
+#files to compile
+CCFILES = \
+	main.c \
+	error.c	\
+	colors.c \
+	fonts.c	\
+	gamemath.c \
+	timer.c	\
+	sounds.c \
+	score.c \
+	demo.c \
+	sun.c \
+	moveable.c \
+	collide.c \
+	welcome.c \
+	bounce.c \
+	who_won.c \
+	loading.c \
+	$(NULL)
+
+#all local .o files
+OBJS =  ${CCFILES:.c=.o} \
+	../../nio_lib/nio_lib.a \
+	../../common/nio_log/nio_log.a \
+	../../common/str_lib/str_lib.a \
+	../../common/file_io_lib/file_io_lib.a \
+	../../common/msg_lib/msg_lib.a \
+	../../nio_lib/nio_lib.a \
+	../../common/str_lib/str_lib.a \
+	$(NULL)
+
+default: bounce.nio
+
+bounce.nio: $(OBJS) $(HEADERS) 
+	$(CC) $(LFLAGS) $(OBJS) $(LIBS) -o $@
+
+indent:
+	indent -kr -i4 *.h *.c
+
+clean:
+	rm -f core *.o bounce.nio *~ .*.swp
+
+new: clean default
+
+install:
+	./install.sh
+
+bounce.o: bounce.c bounce.h
+
+collide.o: collide.c collide.h
+
+colors.o: colors.c colors.h
+
+demo.o: demo.c demo.h
+
+error.o: error.c error.h
+
+fonts.o: fonts.c fonts.h
+
+gamemath.o: gamemath.c gamemath.h 
+
+main.o: main.c main.h
+
+moveable.o: moveable.c moveable.h
+
+score.o: score.c score.h
+
+sounds.o: sounds.c sounds.h
+
+sun.o: sun.c sun.h
+
+timer.o: timer.c timer.h
+
+welcome.o: welcome.c welcome.h
+
+who_won.o: who_won.c who_won.h
+

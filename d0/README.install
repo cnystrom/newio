@@ -1,0 +1,32 @@
+
+Note: You can run this program from this build directory (but not from the src
+directory).
+
+If you would like to install it:
+
+--------------
+
+cd src
+make
+
+cd ..
+./install.sh
+
+----- OR -----
+
+cd  src
+make
+
+cd ..
+su root
+./install-root.sh
+
+--------------
+
+The install scripts are very simple, but best practice suggestes that you take
+a minute to read them before you run them.
+
+--
+
+You will also need to install libssh2 (http://www.libssh2.org)
+

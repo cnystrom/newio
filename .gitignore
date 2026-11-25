@@ -1,0 +1,46 @@
+# Build output
+*.o
+*.a
+*.so
+*.so.*
+*.nio
+*.exe
+*.dll
+*.obj
+*.lib
+*.pdb
+*.idb
+*.ilk
+*.ncb
+*.suo
+*.user
+BuildLog.htm
+Debug/
+Release/
+core
+core.*
+/niod/niod
+/d0/d0
+/d0/src/d0
+
+# Archives
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# Bundled media and fonts (not part of the source)
+*.ogg
+*.wav
+*.au
+*.mpg
+*.jpg
+*.png
+*.gif
+*.bmp
+*.ttf
+
+# Editor and OS clutter
+*.bak
+*~
+.DS_Store

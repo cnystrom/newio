@@ -1,0 +1,9 @@
+service msg_lib
+{
+        socket_type     = stream
+        wait            = no
+        user            = cnystrom
+        server          = /home/cnystrom/Desktop/newio-0.12_066_RC10_070524/common/msg_lib/server2
+        disable         = no
+}
+

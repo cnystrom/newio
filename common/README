@@ -1,0 +1,11 @@
+
+This directory consists of libraries used by both the client and the server.
+
+Since the server is an ssh subsystem, all communication to the client is
+via stdio, so do not write anything to stdio unless you want it to go to
+the client (ie, newio protocol stuff). 
+
+instead of using stdio for error messages, use the nio_log facility. This
+will send messages to the log files instead of interfearing with the
+communications.
+

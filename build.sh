@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Build Version
+#
+
+VERSION=0.12
+BUILD=067_RC05
+DATE=110130
+
+NEWIO_VERSION=newio-${VERSION}_${BUILD}_${DATE}
+
+echo "NEWIO_VERSION=${NEWIO_VERSION}"
+

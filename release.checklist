@@ -1,0 +1,25 @@
+
+Update version in d0 and niod
+Update Changelog
+
+Install on appstest.newio.org
+Test Everything on appstest.newio.org
+
+Check into CVS
+Create TARballs
+Create Binaries
+Announce Release Candidate
+Wait for Feedback
+- If problems or issues, go back to start
+
+Install on apps.newio.org
+Test on apps.newio.org (all client versions)
+
+Update Web Site
+Announce
+- Freshmeat
+- Developers Mailing List
+- Developers Forum
+- NewIO Blog
+- Other Mailing Lists as Needed
+

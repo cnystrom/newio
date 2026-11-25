@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual C++ Express 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ssh_client", "ssh_client.vcproj", "{04942B54-FBF9-4841-BBEF-7B93CE6EC686}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tcp_client", "tcp_client.vcproj", "{19FE5304-08A8-41B5-88F0-03CEEA1E90E5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tcp_server", "tcp_server.vcproj", "{2923D09D-3701-4998-92A4-ED216590D69D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stdio_server", "stdio_server.vcproj", "{99B299CC-200E-4398-B9B0-E5FA083C193E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04942B54-FBF9-4841-BBEF-7B93CE6EC686}.Debug|Win32.ActiveCfg = Debug|Win32
+		{04942B54-FBF9-4841-BBEF-7B93CE6EC686}.Debug|Win32.Build.0 = Debug|Win32
+		{04942B54-FBF9-4841-BBEF-7B93CE6EC686}.Release|Win32.ActiveCfg = Release|Win32
+		{04942B54-FBF9-4841-BBEF-7B93CE6EC686}.Release|Win32.Build.0 = Release|Win32
+		{19FE5304-08A8-41B5-88F0-03CEEA1E90E5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{19FE5304-08A8-41B5-88F0-03CEEA1E90E5}.Debug|Win32.Build.0 = Debug|Win32
+		{19FE5304-08A8-41B5-88F0-03CEEA1E90E5}.Release|Win32.ActiveCfg = Release|Win32
+		{19FE5304-08A8-41B5-88F0-03CEEA1E90E5}.Release|Win32.Build.0 = Release|Win32
+		{2923D09D-3701-4998-92A4-ED216590D69D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2923D09D-3701-4998-92A4-ED216590D69D}.Debug|Win32.Build.0 = Debug|Win32
+		{2923D09D-3701-4998-92A4-ED216590D69D}.Release|Win32.ActiveCfg = Release|Win32
+		{2923D09D-3701-4998-92A4-ED216590D69D}.Release|Win32.Build.0 = Release|Win32
+		{99B299CC-200E-4398-B9B0-E5FA083C193E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{99B299CC-200E-4398-B9B0-E5FA083C193E}.Debug|Win32.Build.0 = Debug|Win32
+		{99B299CC-200E-4398-B9B0-E5FA083C193E}.Release|Win32.ActiveCfg = Release|Win32
+		{99B299CC-200E-4398-B9B0-E5FA083C193E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual C++ Express 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "d0", "d0.8.vcproj", "{C439E0CB-1E19-4A16-83EE-D0A291AB22CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Console Debug|Win32 = Console Debug|Win32
+		Console Release|Win32 = Console Release|Win32
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C439E0CB-1E19-4A16-83EE-D0A291AB22CE}.Console Debug|Win32.ActiveCfg = Console Debug|Win32
+		{C439E0CB-1E19-4A16-83EE-D0A291AB22CE}.Console Debug|Win32.Build.0 = Console Debug|Win32
+		{C439E0CB-1E19-4A16-83EE-D0A291AB22CE}.Console Release|Win32.ActiveCfg = Console Release|Win32
+		{C439E0CB-1E19-4A16-83EE-D0A291AB22CE}.Console Release|Win32.Build.0 = Console Release|Win32
+		{C439E0CB-1E19-4A16-83EE-D0A291AB22CE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C439E0CB-1E19-4A16-83EE-D0A291AB22CE}.Debug|Win32.Build.0 = Debug|Win32
+		{C439E0CB-1E19-4A16-83EE-D0A291AB22CE}.Release|Win32.ActiveCfg = Release|Win32
+		{C439E0CB-1E19-4A16-83EE-D0A291AB22CE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

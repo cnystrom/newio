@@ -1,0 +1,7 @@
+070814 - fixed vazpac bug. cleaned up niod.c
+070916 - Fixed nio_music_playing()
+081121 - Minor cleanups to d0/src/main.c and d0/src/rpc.c
+090122 - Updated for latest ffmpeg lib and fixed d0/text_box.c issues
+110130 - Updated to latest sock_lib and cleaned up compiler errors and
+           warnings
+
