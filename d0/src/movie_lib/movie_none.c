@@ -2,12 +2,10 @@
  *
  *    movie_none.c
  *
- *    Added 2026. movie_lib.c was written for the FFmpeg API of 2009, which
- *    current FFmpeg no longer has (AVStream.codec, avcodec_decode_audio2,
- *    AVPicture, get_buffer callbacks). Until it is ported, d0 is built
- *    with these stand-ins: a program that asks for a movie gets a message
- *    on stderr and no movie. Build with "make MOVIE=yes" to use
- *    movie_lib.c instead.
+ *    Added 2026. The FFmpeg movie player (movie_lib.c) was written for
+ *    the FFmpeg API of 2009 and has been removed. d0 is built with these
+ *    stand-ins: a program that asks for a movie gets a message on stderr
+ *    and no movie.
  *
  *    This program is free software; you can redistribute it and/or modify
  *    it under the terms of the GNU Lesser General Public License as published

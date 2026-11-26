@@ -150,16 +150,9 @@ LIBDIRS = 	\
  
 CFLAGS =	$(COPTS) $(INCLUDES) -DDEBUG -D$(TARGET_OS)
 
-# MOVIE=yes builds movie playback (old FFmpeg API, see movie_lib/movie_none.c)
-MOVIE ?=	no
-
-ifeq ($(MOVIE),yes)
-MOVIE_LIBS =	-lavformat -lavcodec -lavutil -lswscale
-endif
-
 # system libraries go after the static libraries that use them
 LFLAGS =	$(LIBDIRS) -lSDL_ttf -lSDL_image -lSDL_mixer -lssh2 -lcrypto \
-		$(shell sdl-config --libs) $(MOVIE_LIBS) -lm
+		$(shell sdl-config --libs) -lm
 
 #default compilation rules
 %.o:		%.c
@@ -217,7 +210,7 @@ $(SDL_LIB_BIN):
 		cd $(SDL_LIB_PATH); make TARGET_OS=$(TARGET_OS) 
 						                            
 $(MOVIE_LIB_BIN):
-		cd $(MOVIE_LIB_PATH); make TARGET_OS=$(TARGET_OS) MOVIE=$(MOVIE)
+		cd $(MOVIE_LIB_PATH); make TARGET_OS=$(TARGET_OS)
 						                            
 $(SOCK_LIB_BIN):
 		cd $(SOCK_LIB_PATH); make TARGET_OS=$(TARGET_OS) 

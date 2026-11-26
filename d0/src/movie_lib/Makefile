@@ -10,19 +10,11 @@ LIB1_H =     \
 		movie_lib.h \
 		$(NULL)
 
-# Movie playback needs the 2009 FFmpeg API (see movie_none.c). By default
-# build the stand-ins; "make MOVIE=yes" builds movie_lib.c.
-MOVIE ?=	no
-
-ifeq ($(MOVIE),yes)
-LIB1_C =     \
-		movie_lib.c \
-		$(NULL)
-else
+# movie_lib.c (the FFmpeg movie player) was removed in 2026; d0 is
+# built with the stand-ins in movie_none.c.
 LIB1_C =     \
 		movie_none.c \
 		$(NULL)
-endif
 
 LIB1_OBJS =  \
 		${LIB1_C:.c=.o} \
@@ -39,7 +31,6 @@ INCLUDES = 	\
 		-I../../../common/file_io_lib \
 		-I../screen_lib \
 		-I../audio_lib \
-		-I/usr/include/ffmpeg \
 		$(NULL)
 
 LIBDIRS = 	\

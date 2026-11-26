@@ -55,7 +55,7 @@ Visual Studio 2005 projects are in the `VisualC` folders. The Inno Setup script 
 
 **What builds right now (2026):** on a modern Linux system (gcc 14, SDL 1.2 or sdl12-compat, libssh2, OpenSSL) `common/compile.sh`, `nio_lib`, `d0` and the demos `demo1`, `demo_apps`, `edit`, `example3`, `jukebox`, `neko` and `paint` all build. New, original replacements were written for the removed third-party files that the build needs: `strlcpy`/`strlcat`, `keysym.h`, `colors.c`/`colors.h` (colour names from the X.Org `rgb.txt`), the d0 font helpers (`d0/src/font_lib`), `SDL_prim` and `win32_lib.c`. The demos whose sources were removed (`bounce`, `clickomania`, `epicycle`, `grav`, `kaleidescope`, `pong`, `vazpac`) are no longer in the demo build scripts.
 
-The movie player in `d0/src/movie_lib` uses the 2009 FFmpeg API and does not build against current FFmpeg. By default d0 is built without it (movie calls do nothing). `make MOVIE=yes` builds the old code.
+The FFmpeg movie player in `d0/src/movie_lib` (written for the 2009 FFmpeg API) was removed in 2026. d0 is built with stand-ins, so movie requests from a program do nothing.
 
 **Windows client:** `d0.exe` cross-builds for 64-bit Windows with MinGW-w64:
 
