@@ -3,7 +3,7 @@
 # Build Version
 #
 
-VERSION=0.12
+VERSION=0.13
 BUILD=067_RC05
 DATE=110130
 

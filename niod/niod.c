@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 //	gethostname(hostname, HOSTNAME_LEN);
 //	nio_log_print("hostname = |%s|\n", hostname);
 
-	snprintf(s, BUFSIZ, "NIOd Test Server 0.12");
+	snprintf(s, BUFSIZ, "NIOd Test Server 0.13");
 
 	nio_log_print("main(): welcome = |%s|\n", s);
 

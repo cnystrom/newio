@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=Dreadnought Browser
-AppVerName=Dreadnought Browser version 0.12 066 RC10 080105
+AppVerName=Dreadnought Browser version 0.13
 DefaultDirName={pf}\NewIO\DreadNought
 DefaultGroupName=NewIO
 UninstallDisplayIcon={app}\d0.ico
