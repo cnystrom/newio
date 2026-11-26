@@ -4,4 +4,8 @@
 090122 - Updated for latest ffmpeg lib and fixed d0/text_box.c issues
 110130 - Updated to latest sock_lib and cleaned up compiler errors and
            warnings
+261126 - 0.13: builds on modern Linux (gcc 14); Windows d0 client
+           cross-built with MinGW-w64; new replacements for removed
+           third-party files; niod build fix; removed the FFmpeg movie
+           player and the d0 update.sh download
 

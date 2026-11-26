@@ -9,7 +9,7 @@ NewIO (also written New I/O or NIO) is Chris Nystrom's remote-display system fro
 
 Programs use a simple RPC protocol to drive an SDL client over SSH. It is "a poor man's X-Windows, although it is not a desktop system."
 
-This is **version 0.12, build 067_RC05, dated January 30, 2011** (`newio-110130`).
+This is **version 0.13** (November 2026). It updates version 0.12, build 067_RC05, dated January 30, 2011 (`newio-110130`), so that it builds on current systems and adds a Windows build of the client. See `Changelog` and the release notes.
 
 - Project site: https://newio.org
 - Chris Nystrom: https://nystrom.family/chris/
@@ -21,6 +21,7 @@ This is **version 0.12, build 067_RC05, dated January 30, 2011** (`newio-110130`
 - 081121: minor cleanups to d0/src/main.c and d0/src/rpc.c
 - 090122: updated for latest ffmpeg lib and fixed d0/text_box.c issues
 - 110130: updated to latest sock_lib and cleaned up compiler errors and warnings
+- 261126: 0.13: builds on modern Linux (gcc 14); Windows d0 client cross-built with MinGW-w64; new replacements for removed third-party files; niod build fix; removed the FFmpeg movie player and the d0 update.sh download
 
 `d0/Changelog` has the client's build-by-build history.
 
@@ -53,7 +54,7 @@ These are the original Linux notes. You need libssh2, SDL 1.2, SDL_ttf, SDL_mixe
 
 Visual Studio 2005 projects are in the `VisualC` folders. The Inno Setup script for the Windows client installer is `d0/src/Win32_Installer/DreadNought.iss`.
 
-**What builds right now (2026):** on a modern Linux system (gcc 14, SDL 1.2 or sdl12-compat, libssh2, OpenSSL) `common/compile.sh`, `nio_lib`, `d0` and the demos `demo1`, `demo_apps`, `edit`, `example3`, `jukebox`, `neko` and `paint` all build. New, original replacements were written for the removed third-party files that the build needs: `strlcpy`/`strlcat`, `keysym.h`, `colors.c`/`colors.h` (colour names from the X.Org `rgb.txt`), the d0 font helpers (`d0/src/font_lib`), `SDL_prim` and `win32_lib.c`. The demos whose sources were removed (`bounce`, `clickomania`, `epicycle`, `grav`, `kaleidescope`, `pong`, `vazpac`) are no longer in the demo build scripts.
+**What builds right now (2026):** on a modern Linux system (gcc 14, SDL 1.2 or sdl12-compat, libssh2, OpenSSL) the top-level `compile.sh` builds everything: `common`, `niod`, `nio_lib`, `d0` and the demos `demo1`, `demo_apps`, `edit`, `example3`, `jukebox`, `neko`, and `paint`. New, original replacements were written for the removed third-party files that the build needs: `strlcpy`/`strlcat`, `keysym.h`, `colors.c`/`colors.h` (colour names from the X.Org `rgb.txt`), the d0 font helpers (`d0/src/font_lib`), `SDL_prim` and `win32_lib.c`. The demos whose sources were removed (`bounce`, `clickomania`, `epicycle`, `grav`, `kaleidescope`, `pong`, `vazpac`) are no longer in the demo build scripts.
 
 The FFmpeg movie player in `d0/src/movie_lib` (written for the 2009 FFmpeg API) was removed in 2026. d0 is built with stand-ins, so movie requests from a program do nothing.
 
