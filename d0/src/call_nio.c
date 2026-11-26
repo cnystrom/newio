@@ -118,9 +118,8 @@ int call_nio(url myurl)
 
 	// No longer doing versioning in the subsystem request so this is broken
 	if (strlen(str) > 1) {
-		system
-		    ("cd ~; wget ftp://ftp.newio.org/pub/d0/update.sh; chmod +x update.sh");
-		printf("Old browser version. Please run ~/update.sh.\n");
+		// 2026: no longer downloads and installs an update script
+		printf("Old browser version. Please install a newer d0.\n");
 		exit(0);
 	}
 
