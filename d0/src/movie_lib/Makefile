@@ -10,9 +10,19 @@ LIB1_H =     \
 		movie_lib.h \
 		$(NULL)
 
+# Movie playback needs the 2009 FFmpeg API (see movie_none.c). By default
+# build the stand-ins; "make MOVIE=yes" builds movie_lib.c.
+MOVIE ?=	no
+
+ifeq ($(MOVIE),yes)
 LIB1_C =     \
 		movie_lib.c \
 		$(NULL)
+else
+LIB1_C =     \
+		movie_none.c \
+		$(NULL)
+endif
 
 LIB1_OBJS =  \
 		${LIB1_C:.c=.o} \
@@ -59,6 +69,7 @@ $(TARGET1):	$(OBJS1) $(HEADERS1) $(LIBS1)
 		$(CC) $(LFLAGS) $(OBJS1) $(LIBS1) -o $@
 
 $(LIB1):	$(LIB1_OBJS) $(LIB1_H) $(LIB1_C)
+		rm -f $(LIB1)
 		ar rcs $(LIB1) $(LIB1_OBJS)
 		ranlib $(LIB1)
 

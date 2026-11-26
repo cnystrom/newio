@@ -814,7 +814,7 @@ void nio_send_file_chunk()
 	if ( fsize ) {
 		printf("filesize: %d\n",fsize);
 		printf("Loading %s...%02d%%\n",filename,100*accumsize/fsize);
-		sprintf(buf,"%s...%02d%%",filename,100*accumsize/fsize);
+		snprintf(buf,sizeof(buf),"%s...%02d%%",filename,100*accumsize/fsize);	/* FIX (2026): was sprintf into buf[256] */
 		draw_resource_text(buf);
 	}
 }

@@ -9,7 +9,7 @@ CC =  gcc
 BIN = edit.nio
 
 #LIB = -lnsl -lsocket # Solaris
-LIB = -lnsl -lutil -lpthread $(shell sdl-config --libs) -lSDL_ttf # Linux
+LIB = -lutil -lpthread $(shell sdl-config --libs) -lSDL_ttf # Linux
 
 INCLUDES = \
 	-I../../nio_lib \

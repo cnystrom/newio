@@ -43,11 +43,6 @@ OBJS1 =		${CCFILES1:.c=.o}
 #
 
 LIBS1 = 	\
-		-lSDL_ttf \
-		-lSDL_image \
-		-lSDL_mixer \
-		-lcrypto \
-		-lssh2 \
 		$(NIO_LOG_LIB_BIN) \
 		$(STR_LIB_BIN) \
 		$(FILE_IO_LIB_BIN) \
@@ -155,7 +150,16 @@ LIBDIRS = 	\
  
 CFLAGS =	$(COPTS) $(INCLUDES) -DDEBUG -D$(TARGET_OS)
 
-LFLAGS =	$(LIBDIRS)
+# MOVIE=yes builds movie playback (old FFmpeg API, see movie_lib/movie_none.c)
+MOVIE ?=	no
+
+ifeq ($(MOVIE),yes)
+MOVIE_LIBS =	-lavformat -lavcodec -lavutil -lswscale
+endif
+
+# system libraries go after the static libraries that use them
+LFLAGS =	$(LIBDIRS) -lSDL_ttf -lSDL_image -lSDL_mixer -lssh2 -lcrypto \
+		$(shell sdl-config --libs) $(MOVIE_LIBS) -lm
 
 #default compilation rules
 %.o:		%.c
@@ -170,7 +174,7 @@ new:		clean default
 #==============================================================================
 
 $(TARGET1):	$(OBJS1) $(HEADERS1) $(LIBS1)
-		$(CC) $(LFLAGS) $(OBJS1) $(LIBS2) $(LIBS1) -o $@ -lavformat -lavcodec -lavutil -lswscale
+		$(CC) $(OBJS1) $(LIBS2) $(LIBS1) $(LFLAGS) -o $@
 		cp $(TARGET1) ..
 
 $(NIO_LOG_LIB_BIN):
@@ -213,7 +217,7 @@ $(SDL_LIB_BIN):
 		cd $(SDL_LIB_PATH); make TARGET_OS=$(TARGET_OS) 
 						                            
 $(MOVIE_LIB_BIN):
-		cd $(MOVIE_LIB_PATH); make TARGET_OS=$(TARGET_OS) 
+		cd $(MOVIE_LIB_PATH); make TARGET_OS=$(TARGET_OS) MOVIE=$(MOVIE)
 						                            
 $(SOCK_LIB_BIN):
 		cd $(SOCK_LIB_PATH); make TARGET_OS=$(TARGET_OS) 

@@ -46,7 +46,7 @@ extern "C" {
 		int width;
 	} glyphMetrics;
 
-	glyphMetrics system_font_metrics[MAX_FONTS];
+	extern glyphMetrics system_font_metrics[MAX_FONTS];
 
 	PUBLIC void load_system_glyph_metrics(int num, int ptSize,
 					      int style, int font_num);

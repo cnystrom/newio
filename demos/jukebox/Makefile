@@ -7,7 +7,7 @@ CC =  gcc
 BIN = jukebox.nio
 
 #LIB = -lnsl -lsocket # Solaris
-LIB = -lnsl -lutil -lpthread $(shell sdl-config --libs)	-lSDL_ttf
+LIB = -lutil -lpthread $(shell sdl-config --libs)	-lSDL_ttf
 #LIB = -lpthread
 
 INCLUDES = \

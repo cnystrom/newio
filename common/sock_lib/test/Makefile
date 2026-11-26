@@ -168,19 +168,19 @@ new:		clean default
 #==============================================================================
 
 $(TARGET1):	$(OBJS1) $(HEADERS1) $(LIBS1)
-		$(CC) $(LFLAGS) $(OBJS1) $(LIBS1) -o $@
+		$(CC) $(OBJS1) $(LIBS1) $(LFLAGS) -o $@
 
 $(TARGET2):	$(OBJS2) $(HEADERS2) $(LIBS2)
-		$(CC) $(LFLAGS) $(OBJS2) $(LIBS2) -o $@
+		$(CC) $(OBJS2) $(LIBS2) $(LFLAGS) -o $@
 
 $(TARGET3):	$(OBJS3) $(HEADERS3) $(LIBS3)
-		$(CC) $(LFLAGS) $(OBJS3) $(LIBS3) -o $@
+		$(CC) $(OBJS3) $(LIBS3) $(LFLAGS) -o $@
 
 $(TARGET4):	$(OBJS4) $(HEADERS4) $(LIBS4)
-		$(CC) $(LFLAGS) $(OBJS4) $(LIBS4) -o $@
+		$(CC) $(OBJS4) $(LIBS4) $(LFLAGS) -o $@
 
 $(TARGET5):	$(OBJS5) $(HEADERS5) $(LIBS5)
-		$(CC) $(LFLAGS) $(OBJS5) $(LIBS5) -o $@
+		$(CC) $(OBJS5) $(LIBS5) $(LFLAGS) -o $@
 
 $(NIO_LOG_BIN):
 		cd $(NIO_LOG_PATH); make

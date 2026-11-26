@@ -36,6 +36,9 @@
 #include <errno.h>
 #ifdef WIN32
 #include <direct.h>
+#else
+#include <pwd.h>	/* FIX (2026): for get_home_dir() */
+#include <unistd.h>
 #endif
 #include "str_lib.h"
 #include "../nio_log/nio_log.h"
@@ -125,6 +128,10 @@ PUBLIC int get_home_dir(char *s)
 	char *tmp;
 	if ((tmp = getenv("HOME")) == NULL) {
 		nio_log_print("get_home_dir(): HOME not found.\n");
+		/* FIX (2026): was strlen(NULL). Use the password
+		 * file entry, or else an empty string. */
+		struct passwd *pw = getpwuid(getuid());
+		tmp = (pw != NULL && pw->pw_dir != NULL) ? pw->pw_dir : "";
 	}
 #endif
 

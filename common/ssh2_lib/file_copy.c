@@ -145,9 +145,9 @@ PUBLIC int send_file(const char *local_path, const char *remote_path,
 
 PUBLIC int recv_file(const char *remote_path, const char *local_path)
 {
-	struct stat sb;
+	libssh2_struct_stat sb;
 
-	channel = libssh2_scp_recv(_get_session(), remote_path, &sb);
+	channel = libssh2_scp_recv2(_get_session(), remote_path, &sb);
 
 	if (channel == NULL) {
 		nio_log_print("recv_file(): unable to open channel\n");

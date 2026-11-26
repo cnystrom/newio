@@ -34,7 +34,7 @@ PUBLIC int init_session(int sock, const char *username, const char *passwd)
 	 * compression, and MAC layers
 	 */
 	session = libssh2_session_init();
-	if (libssh2_session_startup(session, sock)) {
+	if (libssh2_session_handshake(session, sock)) {
 		nio_log_print("init_session(): failure establishing SSH session\n");
 		return -1;
 	}

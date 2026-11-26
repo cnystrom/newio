@@ -7,7 +7,7 @@ CC =  gcc
 BIN = example3.nio
 
 #LIB = -lnsl -lsocket # Solaris
-LIB = -lnsl -lutil -lpthread $(shell sdl-config --libs) -lSDL_ttf
+LIB = -lutil -lpthread $(shell sdl-config --libs) -lSDL_ttf
 
 INCLUDES = \
 	-I../../nio_lib \

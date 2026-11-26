@@ -130,8 +130,10 @@ load_system_glyph_metrics(int num, int ptSize, int style, int font_num)
 {
 	char buf[BUF_SIZE];
 
-	strncpy(buf, system_font_path, BUF_SIZE);
-	strncat(buf, font_file[num], BUF_SIZE);
+	strncpy(buf, system_font_path, BUF_SIZE - 1);
+	buf[BUF_SIZE - 1] = '\0';
+	/* FIX (2026): the strncat bound was the whole buffer, not the room left */
+	strncat(buf, font_file[num], BUF_SIZE - strlen(buf) - 1);
 
 	load_glyph_metrics(buf, ptSize, style, font_num);
 }

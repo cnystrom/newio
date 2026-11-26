@@ -61,6 +61,7 @@ PUBLIC void nio_log_close(void)
 {
 	if (pFile != NULL) {
 		fclose(pFile);
+		pFile = NULL;	/* FIX (2026): no use after close */
 	}
 }
 

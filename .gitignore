@@ -44,3 +44,22 @@ core.*
 *.bak
 *~
 .DS_Store
+
+# Test and example programs built by common/compile.sh
+/common/msg_lib/examples/buf_test
+/common/msg_lib/examples/client
+/common/msg_lib/examples/client2
+/common/msg_lib/examples/server
+/common/msg_lib/examples/server2
+/common/sock_lib/test/tcp_client
+/common/sock_lib/test/tcp_server
+/common/sock_lib/test/udp_client
+/common/sock_lib/test/udp_client2
+/common/sock_lib/test/udp_server
+/common/test/ssh_client
+/common/test/stdio_server
+/common/test/tcp_client
+/common/test/tcp_server
+
+# Run-time logs written by the demos
+*.0.1.log
