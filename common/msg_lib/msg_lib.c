@@ -41,7 +41,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#ifdef UNIX
+#if defined(UNIX) || defined(__MINGW32__)
 #include <unistd.h>
 #endif
 #include "nio_log.h"

@@ -4,7 +4,7 @@ TARGETS =	$(TARGET1)
 #==============================================================================
 
 FILENAME1 =	d0
-TARGET1 =	$(FILENAME1)
+TARGET1 =	$(FILENAME1).exe
 
 HEADERS1 = 	\
 		done.h \
@@ -35,7 +35,6 @@ CCFILES1 =	\
 		get_userpass.c \
 		rw_ssh.c \
 		win32_lib.c \
-		SDL_win32_main.c \
 		main.c \
 		$(NULL)
 
@@ -63,7 +62,7 @@ LIBS1 = 	\
 
 LIBS2 = 	-lSDL_ttf \
 		-lSDL_image \
-		-lSDL \
+		$(shell sdl-config --libs) \
 		-lSDL_mixer \
 		-lshlwapi \
 		-lws2_32 \
@@ -177,8 +176,6 @@ new:		clean default
 win32_lib.o:	../../common/win32_lib/win32_lib.c
 		$(CC) -c $< $(CFLAGS) -o $@
 
-SDL_win32_main.o:	../../common/win32_lib/SDL_win32_main.c
-		$(CC) -c $< $(CFLAGS) -o $@
 
 #==============================================================================
 

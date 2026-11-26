@@ -5,7 +5,7 @@
 #include "session.h"
 
 PRIVATE LIBSSH2_SESSION *session;
-PRIVATE int socket;
+PRIVATE int session_socket;	/* 2026: was "socket", which clashes with winsock */
 
 PUBLIC LIBSSH2_SESSION *get_session(void)
 {
@@ -14,7 +14,7 @@ PUBLIC LIBSSH2_SESSION *get_session(void)
 
 PUBLIC int get_session_socket(void)
 {
-	return (socket);
+	return (session_socket);
 }
 
 PUBLIC void free_session(void)
@@ -28,7 +28,7 @@ PUBLIC int init_session(int sock, const char *username, const char *passwd)
 	int auth_pw = 1;
 	const char *fingerprint;
 
-	socket = -1;
+	session_socket = -1;
 	/* Create a session instance and start it up
 	 * This will trade welcome banners, exchange keys, and setup crypto,
 	 * compression, and MAC layers
@@ -71,6 +71,6 @@ PUBLIC int init_session(int sock, const char *username, const char *passwd)
 			return (-1);
 		}
 	}
-	socket = sock;
+	session_socket = sock;
 	return 0;
 }

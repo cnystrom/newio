@@ -53,22 +53,17 @@ These are the original Linux notes. You need libssh2, SDL 1.2, SDL_ttf, SDL_mixe
 
 Visual Studio 2005 projects are in the `VisualC` folders. The Inno Setup script for the Windows client installer is `d0/src/Win32_Installer/DreadNought.iss`.
 
-**What builds right now:** this tree was test-built on a modern Linux system (gcc 14). The following libraries build:
+**What builds right now (2026):** on a modern Linux system (gcc 14, SDL 1.2 or sdl12-compat, libssh2, OpenSSL) `common/compile.sh`, `nio_lib`, `d0` and the demos `demo1`, `demo_apps`, `edit`, `example3`, `jukebox`, `neko` and `paint` all build. New, original replacements were written for the removed third-party files that the build needs: `strlcpy`/`strlcat`, `keysym.h`, `colors.c`/`colors.h` (colour names from the X.Org `rgb.txt`), the d0 font helpers (`d0/src/font_lib`), `SDL_prim` and `win32_lib.c`. The demos whose sources were removed (`bounce`, `clickomania`, `epicycle`, `grav`, `kaleidescope`, `pong`, `vazpac`) are no longer in the demo build scripts.
 
-- `common/msg_lib`
-- `common/file_io_lib`
-- `common/sock_lib`
-- `common/ssh2_lib`
-- `common/nio_log`
+The movie player in `d0/src/movie_lib` uses the 2009 FFmpeg API and does not build against current FFmpeg. By default d0 is built without it (movie calls do nothing). `make MOVIE=yes` builds the old code.
 
-Everything else does not build as it is. Third-party files were removed for publication (see below), and these parts depend on them:
+**Windows client:** `d0.exe` cross-builds for 64-bit Windows with MinGW-w64:
 
-- `str_lib` needs `strlcpy` and `strlcat`.
-- `nio_lib` needs `keysym.h` and `colors.h`.
-- `d0` needs its font and primitives helpers.
-- Several demos have had their sources removed.
+1. `python3 win32/get-deps.py` fetches the Windows libraries (MSYS2 packages and SDL 1.2.15) and builds SDL_ttf, SDL_image and SDL_mixer against SDL 1.2.15 in `win32/deps`.
+2. `./build-windows.sh` builds `d0.exe` and puts it, with the DLLs it needs, in `win32/d0`.
+3. Copy the GNU FreeFont TTF files (`FreeMono.ttf` and the rest) into `win32/d0/fonts`.
 
-`niod` depends on `str_lib`. Fixing all of this means supplying replacements for those files.
+The server side (`niod`, `nio_lib` and the demos) still builds for Linux only.
 
 ## Prepared for publication
 
@@ -91,4 +86,4 @@ The tree was changed as follows before publishing:
   - the demo ports of PhilVaz's VazPac, Aaron Cox's Pong and Marius Andra's Clickomania
   - the vendored Win32 include and library trees
 
-  Makefiles and project files that name these files were left as they were.
+  Makefiles and project files that name these files were left as they were, apart from the 2026 build fixes described under Building.

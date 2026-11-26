@@ -36,7 +36,7 @@
  *
  */
 
-#ifdef UNIX
+#if defined(UNIX) || defined(__MINGW32__)
 #include <unistd.h>
 #endif
 

@@ -63,3 +63,7 @@ core.*
 
 # Run-time logs written by the demos
 *.0.1.log
+
+# Windows build (build-windows.sh, win32/get-deps.py)
+/win32/deps/
+/win32/d0/

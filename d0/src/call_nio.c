@@ -83,7 +83,7 @@ int call_nio(url myurl)
 	s = init_tcp_client(server, port_num);
 
 	if (setsockopt
-	    (s, IPPROTO_TCP, TCP_NODELAY, &status, sizeof(status)) == -1) {
+	    (s, IPPROTO_TCP, TCP_NODELAY, (const char *) &status, sizeof(status)) == -1) {
 		fprintf(stderr, "setsockopt TCP_NODELAY failed\n");
 	}
 
