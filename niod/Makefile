@@ -7,7 +7,7 @@ CC =  gcc
 BIN = niod
 
 #LIB = -lnsl -lsocket # Solaris
-LIB = -lnsl -lutil
+LIB = -lutil
 
 all: $(BIN)
 

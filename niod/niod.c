@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 
 	usleep(10000);
 
-	printf(s);
+	printf("%s", s);
 	fflush(stdout);
 
 	nio_log_print("Welcome sent...\n");
